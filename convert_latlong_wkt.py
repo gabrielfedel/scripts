@@ -1,4 +1,7 @@
 # Script para converter pontos em coordenada latlong para WKT
+# script to convert latlong cordinates to wkt
+# input: csv file (input.csv) with 3rd and 4rd colum with lat and long cordinates
+# output: csv file (output.csv) with 3rd colum with wkt cordinate
 
 import math
 import csv
@@ -15,7 +18,7 @@ def convertlatlong (lat,long) :
 
 
 
-arq_cvs = csv.reader(open('mapeamento2.csv','rb'),delimiter=',',quotechar='"')
+arq_cvs = csv.reader(open('input.csv','rb'),delimiter=',',quotechar='"')
 
 lista_cvs = list(arq_cvs)
 
@@ -24,7 +27,7 @@ for i in range(1,len(lista_cvs)):
 	lista_cvs[i].pop(3)
 
 
-result = open('resultado.csv','wb')
+result = open('output.csv','wb')
 writer=csv.writer(result,dialect='excel')
 headings=writer.writerows(lista_cvs)
 result.close()
