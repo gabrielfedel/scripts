@@ -1,3 +1,6 @@
+#a simple script to toggle touchpad
+#maybe you need to change your touchpad, to show yout touchpad type use xinput on terminal
+
 import subprocess
 
 a=subprocess.check_output(["xinput","list-props","SynPS/2 Synaptics TouchPad"])
