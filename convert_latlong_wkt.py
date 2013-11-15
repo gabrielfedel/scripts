@@ -1,7 +1,7 @@
-# Script para converter pontos em coordenada latlong para WKT
+# Script para converter pontos em coordenada latlong para WKT, e deixa em um format para inserção no plugin Neatline do Omeka
 # script to convert latlong cordinates to wkt
 # input: csv file (input.csv) with 3rd and 4rd colum with lat and long cordinates
-# output: csv file (output.csv) with 3rd colum with wkt cordinate
+# output: csv file (output.csv) with 3rd colum with wkt cordinate in format to insert on Neatline plugin for Omeka
 
 import math
 import csv
