@@ -2,6 +2,7 @@
 import csv
 
 #script para juntar os dados de filiacao com os dados dos servidores
+#desenvolvido durante o 2o ENDA em Brasilia
 
 arq1_cvs = csv.reader(open('teste1.csv','rb'),delimiter=',')
 
