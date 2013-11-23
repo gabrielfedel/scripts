@@ -1,15 +1,19 @@
 # coding: utf-8
 import csv
 import json
+import sys
 
 #script para juntar os dados de filiacao com os dados dos servidores
 #desenvolvido durante o 2o ENDA em Brasilia
 
-arq1_csv = csv.reader(open('teste1.csv','rb'),delimiter=',')
+nome_arq1 = sys.argv[1]
+nome_arq2 = sys.argv[2]
+
+arq1_csv = csv.reader(open(nome_arq1,'rb'),delimiter=',')
 
 lista1_csv = list(arq1_csv)
 
-arq2_csv = csv.reader(open('teste2.csv','rb'),delimiter=',')
+arq2_csv = csv.reader(open(nome_arq2,'rb'),delimiter=',')
 
 lista2_csv = list(arq2_csv)
 
@@ -60,6 +64,7 @@ for filiado in filiados:
 	
 with open("resultado.json", "w") as resultado:
     resultado.write(json.dumps(result, indent=4))
+    resultado.write(json.dumps(total_orgao,indent = 4))
 
 
 #resultado final partido, orgão, count
