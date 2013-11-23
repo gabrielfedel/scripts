@@ -1,35 +1,43 @@
 # coding: utf-8
 import csv
+import json
 
 #script para juntar os dados de filiacao com os dados dos servidores
 #desenvolvido durante o 2o ENDA em Brasilia
 
-arq1_cvs = csv.reader(open('teste1.csv','rb'),delimiter=',')
+arq1_csv = csv.reader(open('teste1.csv','rb'),delimiter=',')
 
-lista1_cvs = list(arq1_cvs)
+lista1_csv = list(arq1_csv)
 
-arq2_cvs = csv.reader(open('teste2.csv','rb'),delimiter=',')
+arq2_csv = csv.reader(open('teste2.csv','rb'),delimiter=',')
 
-lista2_cvs = list(arq2_cvs)
+lista2_csv = list(arq2_csv)
 
 servidores = {}
 
 #servidores = {'JOAO' : {'orgao':'MINC','contador':1},'PEDRO' ... }
 
-for servidor in lista1_cvs:
+#Guarda o total de funcionários de cada orgão
+total_orgao = {}
+
+for servidor in lista1_csv:
 	if servidores.has_key(servidor[0]):
 		servidores[servidor[0]]['contador'] += 1
 	else:
 		servidores[servidor[0]] = {}
 		servidores[servidor[0]]['orgao'] = servidor[1]
 		servidores[servidor[0]]['contador'] = 1
+	if total_orgao.has_key(servidor[1]):
+		total_orgao[servidor[1]] += 1
+	else:
+		total_orgao[servidor[1]] = 1
 	
 
 filiados = {}
 
 #filiados = {'PAULO' : {'partido':'PT','contador':1}, 'JOAQUIM' ...}
 
-for filiado in lista2_cvs:
+for filiado in lista2_csv:
 	if filiados.has_key(filiado[0]):
 		filiados[filiado[0]]['contador'] += 1 
 	else:
@@ -50,8 +58,8 @@ for filiado in filiados:
 				else:			
 					result[filiados[filiado]['partido']] = {servidores[filiado]['orgao']:1}
 	
-print result		
-
+with open("resultado.json", "w") as resultado:
+    resultado.write(json.dumps(result, indent=4))
 
 
 #resultado final partido, orgão, count
