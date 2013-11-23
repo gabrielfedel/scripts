@@ -6,6 +6,10 @@ import sys
 #script para juntar os dados de filiacao com os dados dos servidores
 #desenvolvido durante o 2o ENDA em Brasilia
 
+#O script tem como entrada 2 argumentos
+#Um arquivo csv com os servidores (Contendo nome e orgão)
+#Um arquivo com os filiados (Contendo nome e partido)
+
 nome_arq1 = sys.argv[1]
 nome_arq2 = sys.argv[2]
 
